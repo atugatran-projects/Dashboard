@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/style.css">
+    <title>Details</title>
+</head>
+
+<body>
+    <section>
+        <div>
+            <span class="top">
+                <span class="step1 btn active" data-step="1">Details &gt;</span>
+                <span class="step2 btn" data-step="2"> Shipping &gt;</span> 
+                <span class="step3 btn" data-step="3"> Payment </span>
+            </span>
+            <div class="header">
+                <h2>Enter Your Name and Contact information</h2> <a href="#">Login</a>
+            </div>
+            <form>
+                <div class="step1 comman active">
+                    <label for="member">
+                        <input type="checkbox">
+                        <p>Become a member</p>
+                    </label>
+                    <label class="widthf" for="fName">
+                        <input type="text" name="fName">
+                    </label>
+                    <label class="widthf" for="lName">
+                        <input type="text" name="lName">
+                    </label>
+                    <label class="widthf" for="email">
+                        <input type="text" name="email">
+                    </label>
+                    <label class="widthf" for="phone">
+                        <input type="text" name="phone">
+                    </label>
+                    <label for="btn">
+                        <input type="button" class="btn" data-step="2" name="btn" value="Continue to Shipping">
+                    </label>
+                </div>
+                <div class="step2 comman">
+                    <h2 class="header2">Enter Your Shipping Details</h2>
+                    <div class="flex">
+                        <label class="widthh" for="fname">
+                            <p>Frst name</p>
+                            <input type="text" name="fname">
+                        </label>
+                        <label class="widthh" for="fname">
+                            <p>Last name</p>
+                            <input type="text" name="lname">
+                        </label>
+                    </div>
+                    <label class="widthf" for="company">
+                        <p> Company name (optional)</p>
+                        <input type="text" name="lname">
+                    </label>
+                    <label class="widthf" for="country">
+                        <p> Country / Region</p>
+                        <select>
+                            <option value="Us">United States (US)</option>
+                            <option value="Uk">United Kingdom (Uk)</option>
+                        </select>
+                    </label>
+                    <label class="widthf" for="address">
+                        <p> Street address</p>
+                        <input type="text" name="address" placeholder="House number and street name">
+                        <input type="text" name="apartment" placeholder="Apartment, suite, unit, etc">
+                    </label>
+                    <label class="widthf" for="address">
+                        <p>State</p>
+                        <select>
+                            <option value="Haryana">Haryana</option>
+                            <option value="Delhi">Delhi</option>
+                            <option value="Indiana">Indiana</option>
+                        </select>
+                    </label>
+                    <label class="widthf" for="zip">
+                        <p>Zip Code</p>
+                        <input type="text" name="zip">
+                    </label>
+                    <label for="btn">
+                        <input type="button" class="btn" data-step="3" name="btn" value="Continue to Payment">
+                    </label>
+                </div>
+                <!--  -->
+                <div class="step3 comman">
+                    <label for="payment">
+                        <input checked name="payment" type="radio"> <span>Check payments</span>
+                    </label>
+                    <label for="delivery">
+                        <input type="radio" name="payment"> <span>Cash on delivery</span>
+                    </label>
+                    <hr>
+                    <p>
+                        Your personal data will be used to process your order, support your experience
+                        throughout this website, and for other purposes described in our <a href="#"> privacy_policy.</a>
+                    </p>
+                    <label for="btn">
+                        <input type="button" class="btn3" value="Place order">
+                    </label>
+                </div>
+            </form>
+        </div>
+    </section>
+</body>
+<script src="https://code.jquery.com/jquery-3.7.0.min.js"></script>
+<script src="js/script.js"></script>
+
+</html>
