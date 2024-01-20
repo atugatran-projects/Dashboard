@@ -1,9 +1,15 @@
 <?php 
 
-// Database configuration 
-$dbHost     = "localhost"; 
-$dbUsername = "root"; 
-$dbPassword = ""; 
+// Database configuration for localhost
+// $dbHost     = "localhost";  
+// $dbUsername = "root"; 
+// $dbPassword = ""; 
+// $dbName     = "uerygfmm_Dashboard"; 
+
+// Database configuration for webhostmost
+$dbHost     = "localhost";  
+$dbUsername = "uerygfmm_Dashboard"; 
+$dbPassword = "afWKXTPVzWBTDw2FzLGh"; 
 $dbName     = "uerygfmm_Dashboard"; 
 
 // Create database connection 
