@@ -1,39 +1,54 @@
-<?php include(dirname(__FILE__) . "/pages/common/header.php"); ?>
-<?php include(dirname(__FILE__) . "/pages/database/dbconnect.php"); ?>
-
 <?php
+include(dirname(__FILE__) . "/pages/common/header.php");
+include(dirname(__FILE__) . "/pages/database/dbconnect.php");
+
 $login = false;
-// $showError = false;
+
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $userName = $_POST["username"];
     $password = $_POST["password"];
-    $sql = "Select * from `users` WHERE userName='$userName'";
-    $result = mysqli_query($conn, $sql);
-    $num = mysqli_num_rows($result);
-    if ($num == 1) {
-        while ($row = mysqli_fetch_assoc($result)) {
-            if (password_verify($password, $row['password'])) {
-                echo '<script>alert("Login!")</script>';
-                $sno = $row["sno"];
-                $role = $row["role"];
-                $login = true;
-                session_start();
-                $_SESSION['loggedin'] = true;
-                $_SESSION['username'] = $userName;
-                $_SESSION['userID'] = $sno;
-                $_SESSION['userRole'] = $role;
-                header("location: pages/dashboard.php");
-            } else {
-                echo '<script>alert("Invalid Credentials!")</script>';
-                // $showError = "Invalid Credentials";
-            }
+
+    // Use prepared statements to prevent SQL injection
+    $stmt = $conn->prepare("SELECT * FROM `users` WHERE userName = ?");
+    $stmt->bind_param("s", $userName);
+    $stmt->execute();
+    $result = $stmt->get_result();
+
+    if ($result->num_rows == 1) {
+        $row = $result->fetch_assoc();
+
+        if (password_verify($password, $row['password'])) {
+            // Start session only if login is successful
+            // session_start();
+
+            // echo $userName . "<br>";
+            // echo $row["sno"] . "<br>";
+            // echo $row["role"] . "<br>";
+
+            // $_SESSION['loggedin'] = true;
+            // $_SESSION['username'] = $userName;
+            // $_SESSION['userID'] = $row["sno"];
+            // $_SESSION['userRole'] = $row["role"];
+
+            setcookie("loggedin", true, time() + (86400 * 30), "/"); // 86400 = 1 day
+            setcookie("username", $userName, time() + (86400 * 30), "/"); // 86400 = 1 day
+            setcookie("userID", $row["sno"], time() + (86400 * 30), "/"); // 86400 = 1 day
+            setcookie("userRole", $row["role"], time() + (86400 * 30), "/"); // 86400 = 1 day
+
+            // Use header('Location: ...') for redirects
+            header("Location: ./pages/dashboard.php");
+            exit(); // Ensure that no further code is executed after the redirect
+        } else {
+            echo '<script>alert("Invalid Credentials!")</script>';
         }
     } else {
         echo '<script>alert("Invalid Credentials!")</script>';
-        // $showError = "Invalid Credentials";
-        // header("location: ./signup.php");
     }
+
+    // Close the prepared statement
+    $stmt->close();
 }
+
 ?>
 
 <body>

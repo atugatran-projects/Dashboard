@@ -1,5 +1,9 @@
 <?php
 session_start();
+$_SESSION['loggedin'] = $_COOKIE["loggedin"];
+$_SESSION['username'] = $_COOKIE["username"];
+$_SESSION['userID'] = $_COOKIE["userID"];
+$_SESSION['userRole'] = $_COOKIE["userRole"];
 if (!isset($_SESSION['loggedin']) || $_SESSION['loggedin'] != true) {
   header("location:" . SITE_URL . "index.php");
   exit;

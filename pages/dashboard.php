@@ -1,11 +1,9 @@
 <?php include(dirname(__FILE__) . '/common/header.php'); ?>
 <?php include(dirname(__FILE__) . '/database/dbconnect.php'); ?>
-
-
 <body>
   <div class="container-scroller">
     <!-- pages/common/_navbar.php -->
-    <?php include(dirname(__FILE__) . '/common/navbar.php'); ?>
+    <?php  include(dirname(__FILE__) . '/common/navbar.php'); ?>
 
     <?php
     $id = $_SESSION['userID'];
@@ -63,7 +61,7 @@
                           <h5 class="mb-2 text-dark font-weight-normal">Customers</h5>
                           <h2 class="mb-4 text-dark font-weight-bold"><?php echo $num2 ?></h2>
                           <div class="dashboard-progress dashboard-progress-2 d-flex align-items-center justify-content-center item-parent">
-                          <i style="top: 68%;" class="mdi mdi-account-circle icon-md absolute-center text-dark"></i>
+                            <i style="top: 68%;" class="mdi mdi-account-circle icon-md absolute-center text-dark"></i>
                           </div>
                         </div>
                       </div>
