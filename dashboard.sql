@@ -174,7 +174,7 @@ CREATE TABLE IF NOT EXISTS `users` (
 --
 
 INSERT INTO `users` (`sno`, `userName`, `email`, `country`, `password`, `role`, `register_date`) VALUES
-(1, 'admin', 'admin@gmaill.com', 'India', '$2y$10$GSyJRzk89J9NrCmql2HqnOrB8b.DaLo/oJLJJjxFCFWJpII5DKetW', 'customers', '2023-06-09 11:06:46'),
+(1, 'admin', 'admin@gmaill.com', 'India', '$2y$10$BayhvhMzuY3qvPxdtgbJCujWsO7X0Aum2cWHQZzl427N2OVDwmTQi', 'admin', '2023-06-09 11:06:46'),
 (2, 'Atul', 'atul@gmail.com', 'India', '$2y$10$oWMHoZ1kWxBjSZAN19NmDu7E0Qbv8bDZVUHmp8KRsGRxCEltvNs76', 'customers', '2023-06-09 11:17:56');
 COMMIT;
 
